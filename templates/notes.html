@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Заметки
+{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+  <header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+        <span class="fs-4">N0te</span>
+      </a>
+
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Вернуться на главную</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/notes/create">Создать новую</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Планировщик</a>
+        <nav class="navbar navbar-light">
+        <form class="form-inline" action="/notes/{id}">
+          <input class="form-control mr-sm-2" type="search" placeholder="Введите id" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск статьи</button>
+        </form>
+          </nav>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <main>
+    <div>
+      <h1>Все заметки</h1>
+      {% if notes|length > 0 %}
+        {% for el in notes %}
+        <div class="alert alert-info">
+          <h2> {{ el.noteName }} </h2>
+          <p> {{ el.note }} </p>
+          <p><b>Дата создания: {{ el.createdDate }}</b></p>
+          <p><b>Дата последнего изменения: {{ el.editedDate }}</b></p>
+          <a href="/notes/{{ el.id }}" class="btn btn-light"> Перейти к заметке </a>
+          <a href="/notes/{{ el.id }}/update" class="btn btn-link"> Редактировать </a>
+          <a href="/notes/{{ el.id }}/delete" class="btn btn-danger"> Удалить </a>
+        </div>
+        {% endfor %}
+      {% else %}
+      <p>Пока что нет заметок. Попробуйте создать новую, нажав на кнопку <a href="/notes/create"> Создать заметку</a></p>
+      {% endif %}
+    </div>
+  </main>
+</div>
+{% endblock %}

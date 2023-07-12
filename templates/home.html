@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+N0te
+{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+  <header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+        <span class="fs-4">N0te</span>
+      </a>
+
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/notes">Заметки</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none disabled" href="#">Планировщик</a>
+      </nav>
+    </div>
+
+  </header>
+
+  <main>
+    <div>
+      <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Создавай заметки или планируй свои задачи</h1>
+        <p class="lead">Инструмент для создания заметок и планирования</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="/notes" type="button" class="btn btn-warning btn-lg px-4 me-md-2">Заметки</a>
+          <a href="/#" type="button" class="btn btn-outline-secondary disabled btn-lg px-4">Планировщик</a>
+          <a href="/#" type="button" class="btn btn-outline-secondary disabled btn-lg px-4">Появится скоро</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </main>
+
+</div>
+{% endblock %}

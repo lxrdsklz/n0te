@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Заметка № {{ note.id}}
+{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+  <header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+        <span class="fs-4">N0te</span>
+      </a>
+
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/notes">Вернуться ко всем заметкам</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/notes/create">Создать новую</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Планировщик</a>
+        <nav class="navbar navbar-light">
+        <form class="form-inline" action="/notes/{id}">
+          <input class="form-control mr-sm-2" type="search" placeholder="Введите id" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск статьи</button>
+        </form>
+          </nav>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <main>
+    <div>
+      <h1>Заметка № {{ note.id}}</h1>
+
+      <div class="alert alert-info">
+        <h2> {{ note.noteName }} </h2>
+        <p> {{ note.note }} </p>
+        <p><b>Дата создания: {{ note.createdDate }}</b></p>
+        <p><b>Дата последнего изменения: {{ note.editedDate }}</b></p>
+        <a href="/notes/{{ note.id }}/update" class="btn btn-link"> Редактировать </a>
+        <a href="/notes/{{ note.id }}/delete" class="btn btn-danger"> Удалить </a>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
